@@ -1,3 +1,9 @@
+<!-- 
+1. 그림바꾸기
+2.아이디 비번 찾기 버튼 만들기 
+3. pjlogin.jsp 에 form 을 더한 버젼
+-->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
