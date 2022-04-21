@@ -1,23 +1,25 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+    pageEncoding="UTF-8"%><!DOCTYPE HTML>
+<!--
+	Verti by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
 <html>
-<head>
-<meta charset="UTF-8">
-<title>위드펫 :: With Pet</title>
-<link rel="stylesheet" href="main.css">
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.1/examples/blog/">
-    <script src="header.html"></script>
-    <script src="footer.html"></script>
-
-    <body>
+	<head>
+		<title>WithPet</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+		<link rel="stylesheet" href="header/header.css" />
+	</head>
+	<body class="is-preload homepage">
+		<div id="page-wrapper">
       <!-- Bootstrap core CSS -->
       <!-- CSS only -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<%@ include file="header_220419.jsp"  %>
-<div class="image-box" src="img/main5.png">
-</div>
+
+       <%@ include file="header/header.jsp" %>
 <div class="container" >
   <div class="p-4 p-md-5 mb-4 text-white rounded" style="background-color: peachpuff;">
     <div class="col-md-10 px-0">
@@ -171,9 +173,11 @@ function carousel3() {
             setTimeout(carousel4, 2000); // Change image every 2 seconds
         }
         </script>
+       </div>
        
-</main>
-<!-- JavaScript Bundle with Popper -->
+       <%@ include file="footer/footer.jsp" %>
+       
+       <!-- JavaScript Bundle with Popper -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-  </body>
+</body>
 </html>
