@@ -1,3 +1,5 @@
+<!-- 오강래 2022-04-22 -->
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE HTML>
@@ -64,47 +66,41 @@
             <label for="nickname"><br></label>
             
 <button type="button" class="btn btn-secondary btn-sm">중복확인</button>
-            <div class="invalid-feedback">
-              별명을 입력해주세요.
-            </div>
           </div>
         </div>
-
+        
+        
+        <div class="mb-3">
+          <label for="password">비밀번호</label>
+          <input type="password" class="form-control" id="password" placeholder="" required>
+        </div>
+        
         <div class="mb-3">
           <label for="email">이메일</label>
           <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-          <div class="invalid-feedback">
-            이메일을 입력해주세요.
           </div>
-        </div>
-         <div class="mb-1">
-          <label for="email">핸드폰 번호</label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-          <div class="invalid-feedback">
-            핸드폰 번호를 입력해주세요.
+        
+        
+        <div class="mb-3">
+          <label for="name">이름</label>
+          <input type="text" class="form-control" id="name" >
           </div>
-        </div>
+        
+        
+       <div class="mb-3">
+          <label for="phoneNumber">핸드폰 번호(11자리)</label>
+          <input type="text" class="form-control" id="phoneNumber" >
+        </div> 
+        
+        
+        
+        
+        
  <div class="mb-3">
-          <label for="email">생년월일</label>
-          <input type="email" class="form-control" id="email" placeholder="you@example.com" required>
-          <div class="invalid-feedback">
-            생년월일을 입력해주세요.
-          </div>
+          <label for="birthday">생년월일 8자리</label>
+          <input type="text" class="form-control" id="birthday" placeholder="YYYYMMDD" required>
         </div>
-        <div class="mb-3">
-          <label for="address">주소</label>
-          <input type="text" class="form-control" id="address" placeholder="서울특별시 강남구" required>
-          <div class="invalid-feedback">
-            주소를 입력해주세요.
-          </div>
-        </div>
-
-        <div class="mb-3">
-          <label for="address2">상세주소<span class="text-muted">&nbsp;(필수 아님)</span></label>
-          <input type="text" class="form-control" id="address2" placeholder="상세주소를 입력해주세요.">
-        </div>
-
-       
+               
         <hr class="mb-4">
         <div class="custom-control custom-checkbox">
           <input type="checkbox" class="custom-control-input" id="aggrement" required>
