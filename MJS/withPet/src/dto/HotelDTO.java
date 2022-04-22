@@ -1,21 +1,21 @@
 package dto;
 
 public class HotelDTO {
-	private int id;
+	private String id;
 	private String name;
 	private String address;	
 	private String zipcode; 
 	private String cover;	
-	private int price;	
-	private int discount;	
+	private String price;	
+	private String discount;	
 	//animalType을 string으로 4자리 받아 토크닝 후 db에 저장
-	private String animalType; 
+	private String animalType; // JSP에서 0000~1111을 받아오기 
 	private String phoneNumber;
 	private String state;
-	private int userId;
+	private String userId;
 	
 	//********************************* getter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getName() {
@@ -30,10 +30,10 @@ public class HotelDTO {
 	public String getCover() {
 		return cover;
 	}
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
-	public int getDiscount() {
+	public String getDiscount() {
 		return discount;
 	}
 	public String getAnimalType() {
@@ -45,12 +45,12 @@ public class HotelDTO {
 	public String getState() {
 		return state;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 	
 	//********************************* setter
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public void setName(String name) {
@@ -65,10 +65,10 @@ public class HotelDTO {
 	public void setCover(String cover) {
 		this.cover = cover;
 	}
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
-	public void setDiscount(int discount) {
+	public void setDiscount(String discount) {
 		this.discount = discount;
 	}
 	public void setAnimalType(String animalType) {
@@ -80,13 +80,13 @@ public class HotelDTO {
 	public void setState(String state) {
 		this.state = state;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	
 	//********************************* Constructor
-	public HotelDTO(int id, String name, String address, String zipcode, String cover, int price, int discount,
-			String animalType, String phoneNumber, String state, int userId) {
+	public HotelDTO(String id, String name, String address, String zipcode, String cover, String price, String discount,
+			String animalType, String phoneNumber, String state, String userId) {
 		super();
 		this.id = id;
 		this.name = name;

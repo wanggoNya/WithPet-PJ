@@ -1,15 +1,15 @@
-package jdbc;
+package dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.Date;
 import javax.naming.NamingException;
 import dto.UserDTO;
 import util.ConnectionPool;
-
+// select all => 테이블 전체 데이터  관리자가 볼때 테이블 형식으로 for 리스트업
+//
 public class UserDAO {
 
 	public ArrayList<UserDTO> getList() throws NamingException, SQLException {
@@ -28,12 +28,12 @@ public class UserDAO {
 			ArrayList<UserDTO> users = new ArrayList<UserDTO>();
 
 			while (rs.next()) {
-				users.add(new UserDTO(rs.getInt("id"), 
+				users.add(new UserDTO(rs.getString("id"), 
 						rs.getString("account"), 
 						rs.getString("password"),
 						rs.getString("name"), 
 						rs.getString("email"), 
-						rs.getDate("birthday"),
+						rs.getString("birthday"),
 						rs.getString("phoneNumber"), 
 						rs.getString("grade")));
 			}
@@ -64,12 +64,12 @@ public class UserDAO {
 
 			rs.next();
 
-			UserDTO board = new UserDTO(rs.getInt("id"), 
+			UserDTO board = new UserDTO(rs.getString("id"), 
 					rs.getString("account"), 
 					rs.getString("password"),
 					rs.getString("name"), 
 					rs.getString("email"), 
-					rs.getDate("birthday"), 
+					rs.getString("birthday"), 
 					rs.getString("phoneNumber"),
 					rs.getString("grade"));
 
@@ -85,8 +85,8 @@ public class UserDAO {
 		}
 
 	}
-
-	public int insertUser(String account, String password, String name, String email, Date birthday, String phoneNumber,
+	//회원가입
+	public int insertUser(String account, String password, String name, String email, String birthday, String phoneNumber,
 			String grade) throws NamingException, SQLException {
 
 		Connection conn = null;
@@ -97,22 +97,21 @@ public class UserDAO {
 			String sql = "INSERT INTO User (grade, birthday, email, name, phonenumber, account, password) "
 					+ "VALUES (?,?,?,?,?,?,?,?) ";
 			conn = ConnectionPool.get();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, grade);
-			pstmt.setDate(2, (java.sql.Date) birthday);
+			pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+			pstmt.setInt(1, Integer.parseInt(grade));
+			pstmt.setString(2, birthday);
 			pstmt.setString(3, email);
 			pstmt.setString(4, name);
 			pstmt.setString(5, phoneNumber);
 			pstmt.setString(6, account);
 			pstmt.setString(7, password);
 
-			pstmt.executeUpdate();
+			pstmt.executeUpdate(); //db에 insert하기
 
-			rs = pstmt.getGeneratedKeys();
+			rs = pstmt.getGeneratedKeys(); //insert를 하고 나서 밖에서는 db 기본키 값 auto increasement로 뭐가 들어갔는지 안보여서 함수로 확인
 			if (rs.next()) {
-				id = rs.getInt(1);
+				id = rs.getInt(1); // id 기본키 값을 반환
 			}
-
 			return id;
 
 		} finally {
@@ -125,17 +124,18 @@ public class UserDAO {
 	}
 
 	// 개인정보변경 메소드
-	public int updateUser(String account, String password, String name, String email, Date birthday, String phoneNumber,
+	// 개인정보 -> 칸들 채워져 있음 이름, 전화번호, 비번, 주소 jsp select* where id 입력 > updateUser()
+	public int updateUser(String account, String password, String name, String email, String birthday, String phoneNumber,
 			String grade) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			String sql = "UPDATE User SET " + "grade=?, birthday=?, email=?, name=?, phonenumber=?, password=? "
-					+ "WHERE account=?";
+					+ "WHERE account=? AND status=1 ";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, grade);
-			pstmt.setDate(2, (java.sql.Date) birthday);
+			pstmt.setInt(1, Integer.parseInt(grade));
+			pstmt.setString(2, birthday);
 			pstmt.setString(3, email);
 			pstmt.setString(4, name);
 			pstmt.setString(5, phoneNumber);
@@ -159,7 +159,7 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "UPDATE User SET password=? " + "WHERE account=?";
+			String sql = "UPDATE User SET password=? " + "WHERE account=? AND status=1 ";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, password);
@@ -200,17 +200,17 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		try {
+		try { 
 			String sql = "SELECT id, password FROM user WHERE account=? AND status=1";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, account);
-			rs = pstmt.executeQuery();
+			rs = pstmt.executeQuery();  // executeUpdate()는 바로 실행이 되나 select 쿼리는 다르다
 
-			if (!rs.next())
-				return 1; // 회원이 아닌 경우
+			if (!rs.next()) //select query는 rs.next()를 해야 실행이 됨. 값이 없으면 rs.next() => false로 들어옴
+				return 1; // 회원이 아닌 경우  아이디 x jsp 회원가입 창 회원가입 해주세요 
 			if (!password.equals(rs.getString("password")))
-				return 2; // 패스워트 틀린경우
+				return 2; // 패스워트 틀린경우 비밀번호가 틀립니다.
 			return rs.getInt("id");
 
 		} finally {
@@ -224,7 +224,8 @@ public class UserDAO {
 	}
 
 	// 계정 인증 화면을 띄우기 위해 아이디, 이메일 , 생년월일이 동일한지 확인하는 sql 쿼리
-	public int userCode(String account, String email, Date birthday) throws NamingException, SQLException {
+	// 비밀번호찾기 => 아이디, 이메일, 생년월일
+	public int userCode(String account, String email, String birthday) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -239,7 +240,7 @@ public class UserDAO {
 				return 1; // 회원이 아닌 경우 "회원이 아닙니다"
 			if (!email.equals(rs.getString("email")))
 				return 2; // 이메일이 틀린경우 "등록된 이메일 정보와 다릅니다"
-			else if (!((java.sql.Date) birthday).equals(rs.getDate("birthday")))
+			else if (! birthday.equals(rs.getString("birthday")))
 				return 3; // 생일이 맞지 않은 경우 "등록된 생년월일과 다릅니다."
 			return 0;
 

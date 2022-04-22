@@ -1,19 +1,19 @@
 package dto;
 
 public class ProductDTO {
-	private int id;
-	private String name; 
-	private int price;
-	private String image;
+	private String id;
+	private String name; // 츄르
+	private String price;
+	private String image; //
 	
 	//********************************* getter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getName() {
 		return name;
 	}
-	public int getPrice() {
+	public String getPrice() {
 		return price;
 	}
 	public String getImage() {
@@ -21,13 +21,13 @@ public class ProductDTO {
 	}
 	
 	//********************************* setter
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setPrice(int price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 	public void setImage(String image) {
@@ -35,7 +35,7 @@ public class ProductDTO {
 	}
 	
 	//********************************* Constructor
-	public ProductDTO(int id, String name, int price, String image) {
+	public ProductDTO(String id, String name, String price, String image) {
 		super();
 		this.id = id;
 		this.name = name;

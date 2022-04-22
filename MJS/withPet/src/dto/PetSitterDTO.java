@@ -1,15 +1,15 @@
 package dto;
 
 public class PetSitterDTO {
-	private int id;
-	private String certificated;
+	private String id;
+	private String certificated; //사진 웹으로 올리는 경로 dao 메소드 구현
 	private String address;
 	private String animalType;
 	private String phoneNumber;
-	private int userId;
+	private String userId;
 	
 	//********************************* getter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getCertificated() {
@@ -24,12 +24,12 @@ public class PetSitterDTO {
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 	
 	//********************************* setter
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public void setCertificated(String certificated) {
@@ -44,13 +44,13 @@ public class PetSitterDTO {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	
 	//********************************* Constructor
-	public PetSitterDTO(int id, String certificated, String address, String animalType, String phoneNumber,
-			int userId) {
+	public PetSitterDTO(String id, String certificated, String address, String animalType, String phoneNumber,
+			String userId) {
 		super();
 		this.id = id;
 		this.certificated = certificated;

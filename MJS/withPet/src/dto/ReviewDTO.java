@@ -1,67 +1,85 @@
 package dto;
 
 public class ReviewDTO {
-	private int id;
-	private float score;
+	private String id;
+	private String score;  // 5/2.5 최대점수5 최저1 소수점은 1의자리까지만  데이터 입력형식 1,1
 	private String content;
-	private int userId;
-	private int hotelId;
-	private int petSitterId;
+	private String name;
+	private String userId; //작성자 
+	private String fkId; //평가되는 펫시터
+	private String creatAt;
+	private String countLike;
 	
-	//********************************* getter
-	public int getId() {
+	
+	public String getId() {
 		return id;
 	}
-	public float getScore() {
+	public String getScore() {
 		return score;
 	}
 	public String getContent() {
 		return content;
 	}
-	public int getUserId() {
+	public String getName() {
+		return name;
+	}
+	public String getUserId() {
 		return userId;
 	}
-	public int getHotelId() {
-		return hotelId;
+	public String getFkId() {
+		return fkId;
 	}
-	public int getPetSitterId() {
-		return petSitterId;
+	public String getCreatAt() {
+		return creatAt;
+	}
+	public String getCountLike() {
+		return countLike;
 	}
 	
-	//********************************* setter
-	public void setId(int id) {
+	
+	
+	public void setId(String id) {
 		this.id = id;
 	}
-	public void setScore(float score) {
+	public void setScore(String score) {
 		this.score = score;
 	}
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public void setUserId(int userId) {
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public void setHotelId(int hotelId) {
-		this.hotelId = hotelId;
+	public void setFkId(String fkId) {
+		this.fkId = fkId;
 	}
-	public void setPetSitterId(int petSitterId) {
-		this.petSitterId = petSitterId;
+	public void setCreatAt(String creatAt) {
+		this.creatAt = creatAt;
+	}
+	public void setCountLike(String countLike) {
+		this.countLike = countLike;
 	}
 	
-	//********************************* Constructor
-	public ReviewDTO(int id, float score, String content, int userId, int hotelId, int petSitterId) {
+	
+	public ReviewDTO(String id, String score, String content, String name, String userId, String fkId,
+			String creatAt, String countLike) {
 		super();
 		this.id = id;
 		this.score = score;
 		this.content = content;
+		this.name = name;
 		this.userId = userId;
-		this.hotelId = hotelId;
-		this.petSitterId = petSitterId;
+		this.fkId = fkId;
+		this.creatAt = creatAt;
+		this.countLike=countLike;
 	}
-	//********************************* toString
+	
 	@Override
 	public String toString() {
-		return "ReviewDTO [id=" + id + ", score=" + score + ", content=" + content + ", userId=" + userId + ", hotelId="
-				+ hotelId + ", petSitterId=" + petSitterId + "]";
+		return "ReviewDTO [id=" + id + ", score=" + score + ", content=" + content + ", name=" + name + ", userId="
+				+ userId + ", fkId=" + fkId + ", creatAt=" + creatAt + ", countLike=" + countLike + "]";
 	}
 }

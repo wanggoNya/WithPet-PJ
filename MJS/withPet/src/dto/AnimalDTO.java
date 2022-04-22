@@ -1,17 +1,17 @@
 package dto;
 
-import java.sql.Date;
 
 public class AnimalDTO {
-	private int id;
+	private String id;
 	private String name;
-	private String type;
-	private Date birthday;
+	private String type; 
+	private String birthday;
 	private String sex;
-	private int userId;
+	private String userId;
+	
 	
 	//********************************* getter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getName() {
@@ -20,18 +20,18 @@ public class AnimalDTO {
 	public String getType() {
 		return type;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 	public String getSex() {
 		return sex;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 	
 	//********************************* setter
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public void setName(String name) {
@@ -40,18 +40,18 @@ public class AnimalDTO {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public void setBirthday(Date birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public void setSex(String sex) {
 		this.sex = sex;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	
 	//********************************* Constructor
-	public AnimalDTO(int id, String name, String type, Date birthday, String sex, int userId) {
+	public AnimalDTO(String id, String name, String type, String birthday, String sex, String userId) {
 		super();
 		this.id = id;
 		this.name = name;

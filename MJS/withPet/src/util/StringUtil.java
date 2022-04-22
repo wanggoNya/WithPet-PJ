@@ -3,6 +3,7 @@ package util;
 import java.security.MessageDigest;
 import java.util.Random;
 
+//인증번호 6자리 ->메일  scan.equals(result)==1 비밀번호 변경창
 public class StringUtil {
 	public static String randomCode() {
 		String result ="";
@@ -14,7 +15,7 @@ public class StringUtil {
 		return result;
 	}
 	
-	//비밀번호 해시로 암호화
+	//비밀번호 해시로 암호화 1111 
 	public static String stringToHash(String txt) throws Exception{
 	    StringBuffer sbuf = new StringBuffer();
 	     
@@ -30,7 +31,7 @@ public class StringUtil {
 	        sbuf.append(tmpEncTxt) ;
 	    }
 	     
-	    return sbuf.toString();
+	    return sbuf.toString(); //비밀번호 ioveu -> lkasdjf;ldfkjoieejf == hash('iloveu')? => 로그인 성공
 	}
 	
 	

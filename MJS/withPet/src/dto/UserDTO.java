@@ -1,18 +1,16 @@
 package dto;
 
-import java.util.Date;
-
 public class UserDTO {
-	private int id; 
+	private String id; 
 	private String account; //계정 아이디
 	private String password;	//계정비밀번호
 	private String name; // 보호자이름
 	private String email;	//이메일
-	private Date birthday;	//보호자 생년월일
+	private String birthday;	//보호자 생년월일
 	private String phoneNumber;	//보호자 핸드폰 번호
 	private String	grade;	// 유저 종류 번호 (default = 1로 nomal유저)
 	//********************************* getter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getAccount() {
@@ -27,7 +25,7 @@ public class UserDTO {
 	public String getEmail() {
 		return email;
 	}
-	public Date getBirthday() {
+	public String getBirthday() {
 		return birthday;
 	}
 	public String getPhoneNumber() {
@@ -38,7 +36,7 @@ public class UserDTO {
 	}
 	
 	//********************************* setter
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public void setAccount(String account) {
@@ -53,7 +51,7 @@ public class UserDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public void setBirth(Date birthday) {
+	public void setBirth(String birthday) {
 		this.birthday = birthday;
 	}
 	public void setPhoneNumber(String phoneNumber) {
@@ -64,7 +62,7 @@ public class UserDTO {
 	}
 	
 	//********************************* Constructor
-	public UserDTO(int id,String account, String password, String name, String email, Date birthday, String phoneNumber,
+	public UserDTO(String id,String account, String password, String name, String email, String birthday, String phoneNumber,
 			String grade) {
 		super();
 		this.id=id;

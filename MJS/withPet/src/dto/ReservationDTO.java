@@ -1,50 +1,48 @@
 package dto;
 
-import java.sql.Date;
-
 public class ReservationDTO {
-	private int id;
-	private Date startDate;
-	private Date endDate;
-	private int userId;
-	private int petSitterId;
+	private String id;
+	private String startDate;
+	private String endDate;
+	private String userId;
+	private String petSitterId; 
 	
 	//********************************* getter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
-	public Date getStartDate() {
+	public String getStartDate() {
 		return startDate;
 	}
-	public Date getEndDate() {
+	public String getEndDate() {
 		return endDate;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public int getPetSitterId() {
+	public String getPetSitterId() {
 		return petSitterId;
 	}
 	
 	//********************************* setter
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
-	public void setStartDate(Date startDate) {
+	public void setStartDate(String startDate) {
 		this.startDate = startDate;
 	}
-	public void setEndDate(Date endDate) {
+	public void setEndDate(String endDate) {
 		this.endDate = endDate;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public void setPetSitterId(int petSitterId) {
+	public void setPetSitterId(String petSitterId) {
 		this.petSitterId = petSitterId;
 	}
 	
 	//********************************* Constructor
-	public ReservationDTO(int id, Date startDate, Date endDate, int userId, int petSitterId) {
+	public ReservationDTO(String id, String startDate, String endDate, String userId, String petSitterId) {
 		super();
 		this.id = id;
 		this.startDate = startDate;
@@ -52,7 +50,7 @@ public class ReservationDTO {
 		this.userId = userId;
 		this.petSitterId = petSitterId;
 	}
-	public ReservationDTO(int id, Date startDate, Date endDate, int userId) {
+	public ReservationDTO(String id, String startDate, String endDate, String userId) {
 		super();
 		this.id = id;
 		this.startDate = startDate;

@@ -1,41 +1,41 @@
 package dto;
 
 public class ReviewCommentDTO {
-	private int id;
+	private String id;
 	private String comment;
-	private int userId;
-	private int hotelReviewId;
+	private String userId;
+	private String hotelReviewId;
 	
 	//********************************* getter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getComment() {
 		return comment;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
-	public int getHotelReviewId() {
+	public String getHotelReviewId() {
 		return hotelReviewId;
 	}
 
 	//********************************* setter
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public void setComment(String comment) {
 		this.comment = comment;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	public void setHotelReviewId(int hotelReviewId) {
+	public void setHotelReviewId(String hotelReviewId) {
 		this.hotelReviewId = hotelReviewId;
 	}
 	
 	//********************************* Constructor
-	public ReviewCommentDTO(int id, String comment, int userId, int hotelReviewId) {
+	public ReviewCommentDTO(String id, String comment, String userId, String hotelReviewId) {
 		super();
 		this.id = id;
 		this.comment = comment;

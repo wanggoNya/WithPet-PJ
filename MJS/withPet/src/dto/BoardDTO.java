@@ -1,13 +1,13 @@
 package dto;
 
 public class BoardDTO {
-	private int id;
+	private String id;
 	private String title;
 	private String content;
-	private int userId;
+	private String userId;
 	
 	//********************************* getter
-	public int getId() {
+	public String getId() {
 		return id;
 	}
 	public String getTitle() {
@@ -16,12 +16,12 @@ public class BoardDTO {
 	public String getContent() {
 		return content;
 	}
-	public int getUserId() {
+	public String getUserId() {
 		return userId;
 	}
 	
 	//********************************* setter
-	public void setId(int id) {
+	public void setId(String id) {
 		this.id = id;
 	}
 	public void setTitle(String title) {
@@ -30,12 +30,12 @@ public class BoardDTO {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public void setUserId(int userId) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	
 	//********************************* Constructor
-	public BoardDTO(int id, String title, String content, int userId) {
+	public BoardDTO(String id, String title, String content, String userId) {
 		super();
 		this.id = id;
 		this.title = title;
