@@ -20,7 +20,7 @@ public class ProductDAO {
 		ResultSet rs = null;
 
 		try {
-			String sql = "SELECT * FROM product ";
+			String sql = "SELECT * FROM Product ";
 
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
@@ -169,11 +169,11 @@ public class ProductDAO {
 					"from " + 
 					"	(select A.id id, score, content, name, userId, productId, A.creatAt creatAt" + 
 					"	from ProductReview A JOIN User B on A.userId=B.id" + 
-					"	where A.status=1) C " + 
+					"	where A.status=1 and productId=? ) C " + 
 					"join " + 
 					"	(select reviewId, count(*) countLike" + 
 					"	from ProductReviewLike" + 
-					"	group by reviewId) D on C.id=D.reviewId;";
+					"	group by reviewId) D on C.id=D.reviewId";
 
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);

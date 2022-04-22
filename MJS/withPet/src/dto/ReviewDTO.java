@@ -9,8 +9,39 @@ public class ReviewDTO {
 	private String fkId; //평가되는 펫시터
 	private String creatAt;
 	private String countLike;
+	private String commentId;
+	private String comment;
+	private String commentUserId;
+	private String commentUserName;
 	
 	
+	
+	
+	
+	public String getCommentId() {
+		return commentId;
+	}
+	public void setCommentId(String commentId) {
+		this.commentId = commentId;
+	}
+	public String getComment() {
+		return comment;
+	}
+	public void setComment(String comment) {
+		this.comment = comment;
+	}
+	public String getCommentUserId() {
+		return commentUserId;
+	}
+	public void setCommentUserId(String commentUserId) {
+		this.commentUserId = commentUserId;
+	}
+	public String getCommentUserName() {
+		return commentUserName;
+	}
+	public void setCommentUserName(String commentUserName) {
+		this.commentUserName = commentUserName;
+	}
 	public String getId() {
 		return id;
 	}
@@ -62,10 +93,8 @@ public class ReviewDTO {
 	public void setCountLike(String countLike) {
 		this.countLike = countLike;
 	}
-	
-	
-	public ReviewDTO(String id, String score, String content, String name, String userId, String fkId,
-			String creatAt, String countLike) {
+	public ReviewDTO(String id, String score, String content, String name, String userId, String fkId, String creatAt,
+			String countLike, String commentId, String comment, String commentUserId, String commentUserName) {
 		super();
 		this.id = id;
 		this.score = score;
@@ -74,12 +103,34 @@ public class ReviewDTO {
 		this.userId = userId;
 		this.fkId = fkId;
 		this.creatAt = creatAt;
-		this.countLike=countLike;
+		this.countLike = countLike;
+		this.commentId = commentId;
+		this.comment = comment;
+		this.commentUserId = commentUserId;
+		this.commentUserName = commentUserName;
 	}
-	
+	public ReviewDTO(String id, String score, String content, String name, String userId, String fkId, String creatAt,
+			String countLike) {
+		super();
+		this.id = id;
+		this.score = score;
+		this.content = content;
+		this.name = name;
+		this.userId = userId;
+		this.fkId = fkId;
+		this.creatAt = creatAt;
+		this.countLike = countLike;
+	}
 	@Override
 	public String toString() {
 		return "ReviewDTO [id=" + id + ", score=" + score + ", content=" + content + ", name=" + name + ", userId="
-				+ userId + ", fkId=" + fkId + ", creatAt=" + creatAt + ", countLike=" + countLike + "]";
+				+ userId + ", fkId=" + fkId + ", creatAt=" + creatAt + ", countLike=" + countLike + ", commentId="
+				+ commentId + ", comment=" + comment + ", commentUserId=" + commentUserId + ", commentUserName="
+				+ commentUserName + "]";
 	}
+
+	
+	
+	
+
 }
