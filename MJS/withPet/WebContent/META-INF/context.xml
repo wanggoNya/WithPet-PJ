@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Context>
-	<Resource name="jdbc/bbbPro"
+	<Resource name="jdbc/withpet"
 			  auth="Container"
 			  type="javax.sql.DataSource"
 			  driverClassName="com.mysql.jdbc.Driver"
-			  url="bbbpro.ceqjpnufzgtu.ap-northeast-2.rds.amazonaws.com"
-			  username="warawesom"
-			  password="qlqlqlvmfhwprxm1"
+			  url="jdbc:mysql://3.35.234.2/withpet"
+			  username="withpet"
+			  password="withpet"
 			  maxTotal="16"
 			  maxIdle="4"
 			  maxWaitMillis="-1" />

@@ -51,7 +51,7 @@ public class UserDTO {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public void setBirth(String birthday) {
+	public void setBirthday(String birthday) {
 		this.birthday = birthday;
 	}
 	public void setPhoneNumber(String phoneNumber) {

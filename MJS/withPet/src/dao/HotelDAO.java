@@ -20,7 +20,7 @@ public class HotelDAO {
 		ResultSet rs = null;
 
 		try {
-			String sql = "SELECT id, name, address, zipcode, cover, price, discountPrice, "
+			String sql = "SELECT id, name, content, address, zipcode, cover, price, discountPrice, "
 					+ "concat(dog, cat, bird, etc) animalType, phoneNumber, state, userId"
 					+ " FROM Hotel ";
 
@@ -33,6 +33,7 @@ public class HotelDAO {
 			while (rs.next()) {
 				hotels.add(new HotelDTO(rs.getString("id"), 
 											rs.getString("name"), 
+											rs.getString("content"), 
 											rs.getString("address"),
 											rs.getString("zipcode"),
 											rs.getString("cover"),
@@ -63,7 +64,7 @@ public class HotelDAO {
 		ResultSet rs = null;
 
 		try {
-			String sql = "SELECT id, name, address, zipcode, cover, price, discountPrice, "
+			String sql = "SELECT id, name, content, address, zipcode, cover, price, discountPrice, "
 					+ "concat(dog, cat, bird, etc) animalType, phoneNumber, state, userId"
 					+ " FROM Hotel "
 					+ "where id=? and status=1";
@@ -76,6 +77,7 @@ public class HotelDAO {
 
 			HotelDTO hotel = new HotelDTO(rs.getString("id"), 
 												rs.getString("name"), 
+												rs.getString("content"), 
 												rs.getString("address"),
 												rs.getString("zipcode"),
 												rs.getString("cover"),
@@ -99,7 +101,7 @@ public class HotelDAO {
 	}
 
 	// 호텔 등록
-	public int insertHotel(String name, String address, String zipcode, 
+	public int insertHotel(String name, String content, String address, String zipcode, 
 			String cover, String price, String discount, String animalType, 
 			String phoneNumber, String state, String userId
 			) throws NamingException, SQLException {
@@ -109,24 +111,25 @@ public class HotelDAO {
 		ResultSet rs = null;
 		int id = 0;
 		try {
-			String sql = "INSERT INTO Hotel (name, address, zipcode, cover, price, discount," + 
+			String sql = "INSERT INTO Hotel (name, content, address, zipcode, cover, price, discount," + 
 					"dog,cat,bird,etc, phoneNumber, state, userId ) " + 
 					"VALUES (?,?,?,?,?,?,substring(?,1,1),substring(?,2,2),substring(?,3,3),substring(?,4,4),?,?,?)";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, name);
-			pstmt.setString(2, address);
-			pstmt.setString(3, zipcode);
-			pstmt.setString(4, cover);
-			pstmt.setInt(5, Integer.parseInt(price));
-			pstmt.setInt(6, Integer.parseInt(discount));
-			pstmt.setString(7, animalType);
+			pstmt.setString(2, content);
+			pstmt.setString(3, address);
+			pstmt.setString(4, zipcode);
+			pstmt.setString(5, cover);
+			pstmt.setInt(6, Integer.parseInt(price));
+			pstmt.setInt(7, Integer.parseInt(discount));
 			pstmt.setString(8, animalType);
 			pstmt.setString(9, animalType);
 			pstmt.setString(10, animalType);
-			pstmt.setString(11, phoneNumber);
-			pstmt.setString(12, state);
-			pstmt.setString(13, userId);
+			pstmt.setString(11, animalType);
+			pstmt.setString(12, phoneNumber);
+			pstmt.setString(13, state);
+			pstmt.setString(14, userId);
 
 			pstmt.executeUpdate(); // db에 insert하기
 
@@ -145,7 +148,7 @@ public class HotelDAO {
 		}
 	}
 	
-	public int updateHotel(String id, String name, String address, String zipcode, 
+	public int updateHotel(String id, String name,String content, String address, String zipcode, 
 			String cover, String price, String discount, String animalType, 
 			String phoneNumber, String state, String userId
 			) throws NamingException, SQLException {
@@ -153,16 +156,17 @@ public class HotelDAO {
 		PreparedStatement pstmt = null;
 		try {
 			String sql = "UPDATE Hotel SET " 
-					+ "name=?,address=?, zipcode=?,cover=?, price=?, discount=?, "
+					+ "name=?, content=?, address=?, zipcode=?,cover=?, price=?, discount=?, "
 					+ "dog=substring(?,1,1) , cat=substring(?,2,2) , bird=substring(?,3,3) ,etc=substring(?,4,4), "
 					+ "phoneNumber=?, state=?, userId=? "
 					+ "WHERE id=? AND status=1 ";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
-			pstmt.setString(2, address);
-			pstmt.setString(3, zipcode);
-			pstmt.setString(4, cover);
+			pstmt.setString(2, content);
+			pstmt.setString(3, address);
+			pstmt.setString(4, zipcode);
+			pstmt.setString(5, cover);
 			pstmt.setInt(5, Integer.parseInt(price));
 			pstmt.setInt(6, Integer.parseInt(discount));
 			pstmt.setString(7, animalType);
@@ -349,7 +353,7 @@ public class HotelDAO {
 	
 	//----------------------------------------------------HotelReviewLike
 
-	public int insertProductReviewLike(String reviewId, String userId
+	public int insertHotelReviewLike(String reviewId, String userId
 				) throws NamingException, SQLException {
 	
 		Connection conn = null;
@@ -402,7 +406,84 @@ public class HotelDAO {
 	
 	//----------------------------------------------------HotelReviewComment
 	
-	
+	public int insertHotelReviewComment(String comment, String userId, String hotelReviewId 
+			) throws NamingException, SQLException {
+
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	ResultSet rs = null;
+	int id = 0;
+	try {
+		String sql = "INSERT INTO HotelReviewComment (score, content,userId, hotelId) "
+				+ "VALUES (?,?,?,?) ";
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
+		pstmt.setString(1, comment);
+		pstmt.setInt(2, Integer.parseInt(userId));
+		pstmt.setInt(3, Integer.parseInt(hotelReviewId));
+
+		pstmt.executeUpdate(); // db에 insert하기
+
+		rs = pstmt.getGeneratedKeys(); // insert를 하고 나서 밖에서는 db 기본키 값 auto increasement로 뭐가 들어갔는지 안보여서 함수로 확인
+		if (rs.next()) {
+			id = rs.getInt(1); // id 기본키 값을 반환
+		}
+		return id;
+	} finally {
+
+		if (pstmt != null)
+			pstmt.close();
+		if (conn != null)
+			conn.close();
+	}
+}
+
+public int updateHoteltReviewComment(String score, String content, String userId, String hotelId, 
+		String id ) throws NamingException, SQLException {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	try {
+		String sql = "UPDATE HotelReviewComment SET " 
+				+ "score=?, content=?, userId=?, hotelId=? "
+				+ "WHERE id=? AND status=1 ";
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setInt(1, Integer.parseInt(score));
+		pstmt.setString(2, content);
+		pstmt.setInt(3, Integer.parseInt(userId));
+		pstmt.setInt(4, Integer.parseInt(hotelId));
+		pstmt.setInt(5,Integer.parseInt(id));
+		
+		int result = pstmt.executeUpdate();
+		return result;
+
+	} finally {
+		if (pstmt != null)
+			pstmt.close();
+		if (conn != null)
+			conn.close();
+	}
+}
+
+public int deleteHotelReviewComment(String id) throws NamingException, SQLException {
+	Connection conn = null;
+	PreparedStatement pstmt = null;
+	try {
+		String sql = "UPDATE HotelReviewComment SET status=0 " + "WHERE id=?";
+		conn = ConnectionPool.get();
+		pstmt = conn.prepareStatement(sql);
+		pstmt.setString(1, id);
+
+		int result = pstmt.executeUpdate();
+		return result;
+
+	} finally {
+		if (pstmt != null)
+			pstmt.close();
+		if (conn != null)
+			conn.close();
+	}
+}
 	
 
 }

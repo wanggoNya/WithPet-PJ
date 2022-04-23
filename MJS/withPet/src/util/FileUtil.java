@@ -14,6 +14,7 @@ public class FileUtil {
 			if(!f.exists()) {
 				f.mkdir();
 			}
+			System.out.println("파일을직어보자:"+root);
 			f=new File(root+"/"+fname);
 			FileOutputStream out=new FileOutputStream(f);
 			out.write(data);
