@@ -3,6 +3,7 @@ package dto;
 public class HotelDTO {
 	private String id;
 	private String name;
+	private String content;
 	private String address;	
 	private String zipcode; 
 	private String cover;	
@@ -14,12 +15,17 @@ public class HotelDTO {
 	private String state;
 	private String userId;
 	
+	
+	
 	//********************************* getter
 	public String getId() {
 		return id;
 	}
 	public String getName() {
 		return name;
+	}
+	public String getContent() {
+		return content;
 	}
 	public String getAddress() {
 		return address;
@@ -56,6 +62,9 @@ public class HotelDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
+	public void setContent(String content) {
+		this.content = content;
+	}
 	public void setAddress(String address) {
 		this.address = address;
 	}
@@ -83,13 +92,12 @@ public class HotelDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
-	//********************************* Constructor
-	public HotelDTO(String id, String name, String address, String zipcode, String cover, String price, String discount,
-			String animalType, String phoneNumber, String state, String userId) {
+	public HotelDTO(String id, String name, String content, String address, String zipcode, String cover, String price,
+			String discount, String animalType, String phoneNumber, String state, String userId) {
 		super();
 		this.id = id;
 		this.name = name;
+		this.content = content;
 		this.address = address;
 		this.zipcode = zipcode;
 		this.cover = cover;
@@ -100,12 +108,12 @@ public class HotelDTO {
 		this.state = state;
 		this.userId = userId;
 	}
-	
-	//********************************* toString
 	@Override
 	public String toString() {
-		return "HotelDTO [id=" + id + ", name=" + name + ", address=" + address + ", zipcode=" + zipcode + ", cover="
-				+ cover + ", price=" + price + ", discount=" + discount + ", animalType=" + animalType
-				+ ", phoneNumber=" + phoneNumber + ", state=" + state + ", userId=" + userId + "]";
+		return "HotelDTO [id=" + id + ", name=" + name + ", content=" + content + ", address=" + address + ", zipcode="
+				+ zipcode + ", cover=" + cover + ", price=" + price + ", discount=" + discount + ", animalType="
+				+ animalType + ", phoneNumber=" + phoneNumber + ", state=" + state + ", userId=" + userId + "]";
 	}
+	
+
 }

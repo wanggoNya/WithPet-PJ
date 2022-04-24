@@ -31,6 +31,7 @@ public class ProductDAO {
 			while (rs.next()) {
 				products.add(new ProductDTO(rs.getString("id"), 
 											rs.getString("name"), 
+											rs.getString("content"), 
 											rs.getString("price"),
 											rs.getString("image")));
 			}
@@ -62,6 +63,7 @@ public class ProductDAO {
 
 			ProductDTO product = new ProductDTO(rs.getString("id"), 
 												rs.getString("name"), 
+												rs.getString("content"),
 												rs.getString("price"),
 												rs.getString("image"));
 
@@ -78,21 +80,22 @@ public class ProductDAO {
 	}
 
 	// 상품 추가
-	public int insertProduct(String name, String price, String image
+	public int insertProduct(String name, String content, String price, String image
 			) throws NamingException, SQLException {
-
+		
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int id = 0;
 		try {
-			String sql = "INSERT INTO Product (name, price, image) "
-					+ "VALUES (?,?,?) ";
+			String sql = "INSERT INTO Product (name,content, price, image) "
+					+ "VALUES (?,?,?,?) ";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, name);
-			pstmt.setInt(2, Integer.parseInt(price));
-			pstmt.setString(3, image);
+			pstmt.setNString(2, content);
+			pstmt.setInt(3, Integer.parseInt(price));
+			pstmt.setString(4, image);
 
 			pstmt.executeUpdate(); // db에 insert하기
 
@@ -111,20 +114,21 @@ public class ProductDAO {
 		}
 	}
 	
-	public int updateProduct(String name, String price, String image, String id
+	public int updateProduct(String name,String content, String price, String image, String id
 			) throws NamingException, SQLException {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
 			String sql = "UPDATE Product SET " 
-					+ "name=?, price=?, image=? "
+					+ "name=?, content=?, price=?, image=? "
 					+ "WHERE id=? AND status=1 ";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, name);
-			pstmt.setInt(2, Integer.parseInt(price));
-			pstmt.setString(3, image);
-			pstmt.setInt(4,Integer.parseInt(id));
+			pstmt.setString(2, content);
+			pstmt.setInt(3, Integer.parseInt(price));
+			pstmt.setString(4, image);
+			pstmt.setInt(5,Integer.parseInt(id));
 			
 			int result = pstmt.executeUpdate();
 			return result;

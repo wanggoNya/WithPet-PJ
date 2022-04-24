@@ -2,6 +2,7 @@ package dto;
 
 public class PetSitterDTO {
 	private String id;
+	private String content;
 	private String certificated; //사진 웹으로 올리는 경로 dao 메소드 구현
 	private String address;
 	private String animalType;
@@ -11,6 +12,9 @@ public class PetSitterDTO {
 	//********************************* getter
 	public String getId() {
 		return id;
+	}
+	public String getContent() {
+		return content;
 	}
 	public String getCertificated() {
 		return certificated;
@@ -31,6 +35,9 @@ public class PetSitterDTO {
 	//********************************* setter
 	public void setId(String id) {
 		this.id = id;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public void setCertificated(String certificated) {
 		this.certificated = certificated;
