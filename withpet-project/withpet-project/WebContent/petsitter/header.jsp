@@ -1,49 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-	<!-- Header -->
-			<div id="header-wrapper">
-				<header id="header" class="container">
-				  <!-- Logo -->
-				  <div id="logo">
-               <img class="d-block mx-auto mb-4" src="logo.png" alt="" width="150" height="75">
-				  </div>
-		
-				  <!-- Nav -->
-				  <nav id="nav">
-					<ul>
-					  <li class="current"><a href="index copy.html">홈</a></li>
-					  <li>
-						<a href="index copy.html">호텔 찾기</a>
-						<ul>
-						  <li><a href="#">지도별 검색</a></li>
-						  <li><a href="#">종별 검색</a></li>
-						  <li><a href="#">펫시터 찾기</a>
-						</li>
-						</ul>
-					  </li>
-					  <li><a href="left-sidebar.html">펫시터 찾기</a></li>
-					  <li><a href="right-sidebar.html">반려동물 용품</a></li>
-					  <li><a href="no-sidebar.html">커뮤니티</a>
-						<ul>
-							<li><a href="#">보호자 커뮤니티</a></li>
-							<li><a href="#">보호자 대백과</a></li>
-						  </li>
-						  </ul>
-						</li>
-						<li>
-							<a href="#">위드펫과 함께하기</a>
-							<ul>
-								<li><a href="#">호텔 등록 신청</a></li>
-								<li><a href="#">펫시터 등록 신청</a>
-							  </li>
-							  </ul>
-							</li>
-							<li>
-								<a href="#">로그인</a>
-								</li>
-								<li><a href="#">회원가입</a></li>
-					  </ul>
-					</ul>
-				  </nav>
-				</header>
-			  </div>
+	pageEncoding="UTF-8"%>
+<style>
+@font-face {
+    font-family: 'WandohopeB';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.0/WandohopeB.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+body {
+	font-family: 'WandohopeB';
+	padding-bottom: 70px;
+}
+</style>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark" aria-label="Tenth navbar example">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">이몰</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/product/productlist.jsp">상품목록</a>
+        </li>
+  <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            회원
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="/user/login.jsp">로그인</a></li>
+            <li><a class="dropdown-item" href="/user/logout.jsp">로그아웃</a></li>
+            <li><a class="dropdown-item" href="#">주문목록</a></li>
+            <li><a class="dropdown-item" href="/user/useradd.jsp">회원가입</a></li>
+            <li><a class="dropdown-item" href="#">회원탈퇴</a></li>
+          </ul>
+        </li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            관리
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">회원관리</a></li>
+            <li><a class="dropdown-item" href="#">제품관리</a></li>
+            <li><a class="dropdown-item" href="#">판매관리</a></li>
+            <li><a class="dropdown-item" href="#">게시판관리</a></li>
+          </ul>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            게시판
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="#">공지사항</a></li>
+            <li><a class="dropdown-item" href="#">질문답변</a></li>
+            <li><a class="dropdown-item" href="/board/boardlist.jsp">자유게시판</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
