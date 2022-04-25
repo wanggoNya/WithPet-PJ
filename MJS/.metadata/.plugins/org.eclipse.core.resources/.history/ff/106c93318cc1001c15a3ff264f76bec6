@@ -1,0 +1,81 @@
+package dto;
+
+import java.sql.Date;
+
+public class ReviewDTO {
+	private int id;
+	private int score;  // 5/2.5 최대점수5 최저1 소수점은 1의자리까지만  데이터 입력형식 1,1
+	private String content;
+	private String name;
+	private int userId; //작성자 
+	private int fkId; //평가되는 펫시터
+	private Date creatAt;
+	
+	
+	
+	//********************************* getter
+	public int getId() {
+		return id;
+	}
+	public int getScore() {
+		return score;
+	}
+	public String getContent() {
+		return content;
+	}
+	public String getName() {
+		return name;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public int getFkId() {
+		return fkId;
+	}
+	public Date getCreatAt() {
+		return creatAt;
+	}
+	
+	//********************************* setter
+	public void setId(int id) {
+		this.id = id;
+	}
+	public void setScore(int score) {
+		this.score = score;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
+	}
+	public void setPetSitterId(int fkId) {
+		this.fkId = fkId;
+	}
+	public void setCreatAt(Date creatAt) {
+		this.creatAt = creatAt;
+	}
+	
+	//********************************* Constructor
+	public ReviewDTO(int id, int score, String content, String name, int userId, int fkId,
+			Date creatAt) {
+		super();
+		this.id = id;
+		this.score = score;
+		this.content = content;
+		this.name = name;
+		this.userId = userId;
+		this.fkId = fkId;
+		this.creatAt = creatAt;
+	}
+	
+	//********************************* toString
+	@Override
+	public String toString() {
+		return "ReviewDTO [id=" + id + ", score=" + score + ", content=" + content + ", name=" + name + ", userId="
+				+ userId + ", fkId=" + fkId + ", creatAt=" + creatAt + "]";
+	}
+}

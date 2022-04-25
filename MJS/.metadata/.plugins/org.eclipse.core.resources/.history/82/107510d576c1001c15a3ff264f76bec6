@@ -1,0 +1,36 @@
+package jdbc;
+import java.sql.*;
+import java.util.ArrayList;
+import javax.naming.NamingException;
+
+import dto.ProductDTO;
+import util.ConnectionPool;
+public class ProductDAO {
+	
+	
+	public boolean insert(String pid, String pname, String pprice, String pdesc, String pmanu, String pcate,
+			String pcondi, String pimage) throws NamingException, SQLException{
+			Connection conn=null;
+			PreparedStatement pstmt=null;
+			
+			try {
+				String sql="INSERT INTO product VALUES(?,?,?,?,?,?,?,?)";
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+					pstmt.setNString(1, pid);
+					pstmt.setNString(2, pname);
+					pstmt.setNString(3, pprice);
+					pstmt.setNString(4, pdesc);
+					pstmt.setNString(5, pmanu);
+					pstmt.setNString(6, pcate);
+					pstmt.setNString(7, pcondi);
+					pstmt.setNString(8, pimage);
+				int result =pstmt.executeUpdate();
+				return (result==1)?true:false;
+			}finally {
+				
+				if(pstmt !=null) pstmt.close();
+				if(conn !=null) conn.close();
+			}
+	}
+}

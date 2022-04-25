@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+	<Resource name="jdbc/bbbPro"
+			  auth="Container"
+			  type="javax.sql.DataSource"
+			  driverClassName="com.mysql.jdbc.Driver"
+			  url="bbbpro.ceqjpnufzgtu.ap-northeast-2.rds.amazonaws.com"
+			  username="warawesom"
+			  password="qlqlqlvmfhwprxm1"
+			  maxTotal="16"
+			  maxIdle="4"
+			  maxWaitMillis="-1" />
+	
+
+</Context>
+
+
+
