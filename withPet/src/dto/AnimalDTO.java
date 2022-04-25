@@ -8,9 +8,16 @@ public class AnimalDTO {
 	private String birthday;
 	private String sex;
 	private String userId;
+	private String status;
 	
 	
-	//********************************* getter
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public String getId() {
 		return id;
 	}
@@ -29,8 +36,7 @@ public class AnimalDTO {
 	public String getUserId() {
 		return userId;
 	}
-	
-	//********************************* setter
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -49,9 +55,7 @@ public class AnimalDTO {
 	public void setUserId(String userId) {
 		this.userId = userId;
 	}
-	
-	//********************************* Constructor
-	public AnimalDTO(String id, String name, String type, String birthday, String sex, String userId) {
+	public AnimalDTO(String id, String name, String type, String birthday, String sex, String userId, String status) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -59,12 +63,13 @@ public class AnimalDTO {
 		this.birthday = birthday;
 		this.sex = sex;
 		this.userId = userId;
+		this.status = status;
 	}
-	
-	//********************************* toString
 	@Override
 	public String toString() {
 		return "AnimalDTO [id=" + id + ", name=" + name + ", type=" + type + ", birthday=" + birthday + ", sex=" + sex
-				+ ", userId=" + userId + "]";
+				+ ", userId=" + userId + ", status=" + status + "]";
 	}
+
+
 }

@@ -5,9 +5,15 @@ public class ProductDTO {
 	private String name; // 츄르
 	private String content;
 	private String price;
-	private String image; //
+	private String image; 
+	private String status;
 	
-	//********************************* getter
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getId() {
 		return id;
 	}
@@ -25,7 +31,6 @@ public class ProductDTO {
 		return image;
 	}
 	
-	
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -41,19 +46,21 @@ public class ProductDTO {
 	public void setImage(String image) {
 		this.image = image;
 	}
-	public ProductDTO(String id, String name, String content, String price, String image) {
+	public ProductDTO(String id, String name, String content, String price, String image, String status) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.content = content;
 		this.price = price;
 		this.image = image;
+		this.status = status;
 	}
 	@Override
 	public String toString() {
 		return "ProductDTO [id=" + id + ", name=" + name + ", content=" + content + ", price=" + price + ", image="
-				+ image + "]";
+				+ image + ", status=" + status + "]";
 	}
+
 	
 	
 	

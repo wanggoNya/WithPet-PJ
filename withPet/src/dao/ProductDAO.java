@@ -33,7 +33,10 @@ public class ProductDAO {
 											rs.getString("name"), 
 											rs.getString("content"), 
 											rs.getString("price"),
-											rs.getString("image")));
+											rs.getString("image"),
+											rs.getString("status")
+											
+											));
 			}
 			return products;
 
@@ -65,7 +68,9 @@ public class ProductDAO {
 												rs.getString("name"), 
 												rs.getString("content"),
 												rs.getString("price"),
-												rs.getString("image"));
+												rs.getString("image"),
+												rs.getString("status")
+												);
 
 			return product;
 
@@ -145,7 +150,7 @@ public class ProductDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "UPDATE Product SET status=0 " + "WHERE id=?";
+			String sql = "UPDATE Product SET status=0 " + "WHERE id=? AND status=1";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, id);

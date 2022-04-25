@@ -9,7 +9,13 @@ public class UserDTO {
 	private String birthday;	//보호자 생년월일
 	private String phoneNumber;	//보호자 핸드폰 번호
 	private String	grade;	// 유저 종류 번호 (default = 1로 nomal유저)
-	//********************************* getter
+	private String	status;
+	public String getStatus() {
+		return status;
+	}
+	public void setStatus(String status) {
+		this.status = status;
+	}
 	public String getId() {
 		return id;
 	}
@@ -34,8 +40,7 @@ public class UserDTO {
 	public String getGrade() {
 		return grade;
 	}
-	
-	//********************************* setter
+
 	public void setId(String id) {
 		this.id = id;
 	}
@@ -60,12 +65,10 @@ public class UserDTO {
 	public void setGrade(String grade) {
 		this.grade = grade;
 	}
-	
-	//********************************* Constructor
-	public UserDTO(String id,String account, String password, String name, String email, String birthday, String phoneNumber,
-			String grade) {
+	public UserDTO(String id, String account, String password, String name, String email, String birthday,
+			String phoneNumber, String grade, String status) {
 		super();
-		this.id=id;
+		this.id = id;
 		this.account = account;
 		this.password = password;
 		this.name = name;
@@ -73,19 +76,15 @@ public class UserDTO {
 		this.birthday = birthday;
 		this.phoneNumber = phoneNumber;
 		this.grade = grade;
+		this.status = status;
 	}
-	
-	//********************************* Constructor
-	@Override	//에러검사를 위한 toString
+	@Override
 	public String toString() {
-		return "UserDTO [account=" + account + ", password=" + password + ", name=" + name + ", email=" + email
-				+ ", birthday=" + birthday + ", phoneNumber=" + phoneNumber + ", grade=" + grade + "]";
+		return "UserDTO [id=" + id + ", account=" + account + ", password=" + password + ", name=" + name + ", email="
+				+ email + ", birthday=" + birthday + ", phoneNumber=" + phoneNumber + ", grade=" + grade + ", status="
+				+ status + "]";
 	}
-	
 	
 
-	
-	
-	
 
 }

@@ -35,7 +35,10 @@ public class UserDAO {
 						rs.getString("email"), 
 						rs.getString("birthday"),
 						rs.getString("phoneNumber"), 
-						rs.getString("grade")));
+						rs.getString("grade"),
+						rs.getString("status")
+						
+						));
 			}
 			return users;
 
@@ -64,16 +67,17 @@ public class UserDAO {
 
 			rs.next();
 
-			UserDTO board = new UserDTO(rs.getString("id"), 
+			UserDTO user = new UserDTO(rs.getString("id"), 
 					rs.getString("account"), 
 					rs.getString("password"),
 					rs.getString("name"), 
 					rs.getString("email"), 
 					rs.getString("birthday"), 
 					rs.getString("phoneNumber"),
-					rs.getString("grade"));
+					rs.getString("grade"),
+					rs.getString("status"));
 
-			return board;
+			return user;
 
 		} finally {
 			if (rs != null)
@@ -179,9 +183,9 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "UPDATE User SET status=0 " + "WHERE account=?";
+			String sql = "UPDATE User SET status=0 " + "WHERE account=? AND status=1";
 			conn = ConnectionPool.get();
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql); 
 			pstmt.setString(1, account);
 
 			int result = pstmt.executeUpdate();
