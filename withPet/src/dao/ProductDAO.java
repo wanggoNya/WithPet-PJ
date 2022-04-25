@@ -153,7 +153,7 @@ public class ProductDAO {
 			String sql = "UPDATE Product SET status=0 " + "WHERE id=? AND status=1";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1, Integer.parseInt(id));
 
 			int result = pstmt.executeUpdate();
 			return result;
@@ -339,7 +339,7 @@ public class ProductDAO {
 			String sql = "UPDATE ProductReviewLike SET status=0 " + "WHERE id=?";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, id);
+			pstmt.setInt(1,Integer.parseInt(id));
 
 			int result = pstmt.executeUpdate();
 			return result;

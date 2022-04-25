@@ -102,7 +102,7 @@ public class AnimalDAO {
 				pstmt.setString(2, type);
 				pstmt.setString(3, birthday);
 				pstmt.setString(4, sex);
-				pstmt.setString(5, userId);
+				pstmt.setInt(5, Integer.parseInt(userId));
 
 				pstmt.executeUpdate(); // db에 insert하기
 
@@ -156,7 +156,7 @@ public class AnimalDAO {
 				String sql = "UPDATE fosteranimal SET status=0 " + "WHERE id=? AND status=1";
 				conn = ConnectionPool.get();
 				pstmt = conn.prepareStatement(sql);
-				pstmt.setString(1, id);
+				pstmt.setInt(1, Integer.parseInt(id));
 
 				int result = pstmt.executeUpdate();
 				return result;
