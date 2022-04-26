@@ -8,6 +8,8 @@ import java.util.ArrayList;
 
 import javax.naming.NamingException;
 
+import org.apache.jasper.tagplugins.jstl.core.Out;
+
 import dto.*;
 import util.ConnectionPool;
 
@@ -42,9 +44,8 @@ public class HotelDAO {
 											rs.getString("animalType"),
 											rs.getString("phoneNumber"),
 											rs.getString("state"),
-											rs.getString("userId")		
-						
-						));
+											rs.getString("userId"),
+											rs.getString("status")));		
 			}
 			return hotels;
 
@@ -86,7 +87,8 @@ public class HotelDAO {
 												rs.getString("animalType"),
 												rs.getString("phoneNumber"),
 												rs.getString("state"),
-												rs.getString("userId"));		
+												rs.getString("userId"),
+												rs.getString("status"));		
 
 			return hotel;
 
@@ -105,7 +107,6 @@ public class HotelDAO {
 			String cover, String price, String discount, String animalType, 
 			String phoneNumber, String state, String userId
 			) throws NamingException, SQLException {
-
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -113,7 +114,7 @@ public class HotelDAO {
 		try {
 			String sql = "INSERT INTO Hotel (name, content, address, zipcode, cover, price, discount," + 
 					"dog,cat,bird,etc, phoneNumber, state, userId ) " + 
-					"VALUES (?,?,?,?,?,?,substring(?,1,1),substring(?,2,2),substring(?,3,3),substring(?,4,4),?,?,?)";
+					"VALUES (?,?,?,?,?,?,?,substring(?,1,1),substring(?,2,2),substring(?,3,3),substring(?,4,4),?,?,?)";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, name);
@@ -167,16 +168,16 @@ public class HotelDAO {
 			pstmt.setString(3, address);
 			pstmt.setString(4, zipcode);
 			pstmt.setString(5, cover);
-			pstmt.setInt(5, Integer.parseInt(price));
-			pstmt.setInt(6, Integer.parseInt(discount));
-			pstmt.setString(7, animalType);
+			pstmt.setInt(6, Integer.parseInt(price));
+			pstmt.setInt(7, Integer.parseInt(discount));
 			pstmt.setString(8, animalType);
 			pstmt.setString(9, animalType);
 			pstmt.setString(10, animalType);
-			pstmt.setString(11, phoneNumber);
-			pstmt.setString(12, state);
-			pstmt.setString(13, userId);
-			pstmt.setString(14, id);
+			pstmt.setString(11, animalType);
+			pstmt.setString(12, phoneNumber);
+			pstmt.setString(13, state);
+			pstmt.setString(14, userId);
+			pstmt.setString(15, id);
 			
 			int result = pstmt.executeUpdate();
 			return result;
