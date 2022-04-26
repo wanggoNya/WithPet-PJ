@@ -17,5 +17,24 @@
 		session.setAttribute("id", uid);
 		response.sendRedirect("/product/productlist.jsp");
 	}
+	
+	
+	String dog=document.getElementById("DOG").checked;
+	String 
+	String cat=request.getParameter("CAT");	1or0
+	String bird=request.getParameter("BIRD");
+	String etc=request.getParameter("ETC");
+	String animalType="";
+	
+	if(dog.getElementById("input_check").checked) {
+	    document.getElementById("input_check_hidden").disabled = true;
+	}
+
+animalType=dog+cat+bird+etc;
+		animalType +="1";
+	}else{
+		animalType +="0";
+	}
+	
 
 %>

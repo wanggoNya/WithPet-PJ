@@ -22,6 +22,47 @@
       }
     </style>
 
+    <script type="text/javascript">
+    function CheckForm(Join){
+        
+        //체크박스 체크여부 확인 [하나]
+        var chk1=document.frmJoin.U_checkAgreement1.checked;
+        var chk2=document.frmJoin.U_checkAgreement2.checked;
+        var chk3=document.frmJoin.U_checkAgreement2.checked;
+        var chk4=document.frmJoin.U_checkAgreement2.checked;
+        var animalType;
+        if(!chk1){
+        	chk1=0;
+           	animalType+=chk1;
+        }else if(!chk2){
+        	chk2=0;
+        }
+        if(!chk2) {
+            alert('약관2에 동의해 주세요');
+            return false;
+        }
+
+        //체크박스 체크여부 확인 [동일 이름을 가진 체크박스 여러개일 경우]
+        var isSeasonChk = false;
+        var arr_Season = document.getElementsByName("SEASON[]");
+        for(var i=0;i<arr_Season.length;i++){
+            if(arr_Season[i].checked == true) {
+                isSeasonChk = true;
+                break;
+            }
+        }
+    
+        if(!isSeasonChk){
+            alert("계절의 종류를 한개 이상 선택해주세요.");
+            return false;
+        }
+
+    }
+
+
+ </script>
+[출처] [javascript] Checkbox : 체크박스 체크여부 확인|작성자 자바킹
+
     
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
