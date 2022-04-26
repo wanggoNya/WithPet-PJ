@@ -24,7 +24,7 @@
 <link rel="mask-icon" href="/docs/5.1/assets/img/favicons/safari-pinned-tab.svg" color="#7952b3">
 <link rel="icon" href="/docs/5.1/assets/img/favicons/favicon.ico">
 <meta name="theme-color" content="#7952b3"> 
-		
+
 	</head>
 	<body class="is-preload homepage">
 	
@@ -79,7 +79,7 @@
     <h1 class="h3 mb-3 fw-normal">로그인 하세요.</h1>
 
     <div class="form-floating">
-      <input type="email" class="form-control" id="floatingInput" placeholder="아이디 입력">
+      <input type="text" class="form-control" id="floatingInput" placeholder="아이디 입력">
       <label for="floatingInput"></label>
     </div>
     <div class="form-floating">

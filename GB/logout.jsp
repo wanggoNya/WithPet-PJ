@@ -4,4 +4,3 @@
 	session.removeAttribute("id"); //세션 객체에서 id값을 제거 
 	response.sendRedirect("login.jsp");
 %>
-
