@@ -102,25 +102,22 @@
         <div class="mb-3">
   <label for="formFileSm" class="form-label">위탁 가능 동물종 선택<span class="text-muted">&nbsp;(복수 선택 가능)</span></label>
   
-         <div class="form-check">
+<div class="form-check">
   <input name="dog"  type="checkbox">
   <label class="form-check-label" for="flexCheckDefault">
-    강아지
+    강아지  &nbsp &nbsp
   </label>
-</div>
-<div class="form-check">
+
   <input name="cat" type="checkbox">
   <label class="form-check-label" for="flexCheckChecked">
-    고양이
+    고양이	&nbsp &nbsp
   </label>
   
-  <div class="form-check">
   <input name="bird" type="checkbox">
   <label class="form-check-label" for="flexCheckDefault">
-    새
+    새  &nbsp &nbsp 
   </label>
-</div>
-<div class="form-check">
+
   <input name="etc" type="checkbox">
   <label class="form-check-label" for="flexCheckChecked">
     그외 동물

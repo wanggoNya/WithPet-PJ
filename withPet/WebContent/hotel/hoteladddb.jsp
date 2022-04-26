@@ -78,6 +78,10 @@ while (iter.hasNext()) { // 요소가 있으면 계속 반복 없으면 종료
 }
    String animalType = dog+cat+bird+etc;
 
+   System.out.println(dog);
+   System.out.println(cat);
+   System.out.println(bird);
+   System.out.println(etc);
 //디비에 게시물 모든 정보 전달
 HotelDAO dao = new HotelDAO();
 if (!(dao.insertHotel(name, content, address, zipcode, cover, price, discount, dog, cat, bird, etc, phoneNumber, state, userId) == 0)) {
