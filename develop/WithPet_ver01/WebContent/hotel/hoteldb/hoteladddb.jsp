@@ -27,7 +27,7 @@ String cat = null;
 String bird = null;
 String etc = null;
 String state = "10";
-String userId = "10";
+String userId = "1";
 String zipcode = "test";
 byte[] file = null;
 

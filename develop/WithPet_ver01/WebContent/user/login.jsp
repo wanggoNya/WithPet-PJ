@@ -100,11 +100,11 @@
 							<h1 class="h3 mb-3 fw-normal">로그인 하세요.</h1>
 
 							<div class="form-floating">
-								<input type="email" class="form-control" id="floatingInput"
+								<input name="id" type="text" class="form-control" id="floatingInput"
 									placeholder="아이디 입력"> <label for="floatingInput"></label>
 							</div>
 							<div class="form-floating">
-								<input type="password" class="form-control"
+								<input name="pw" type="password" class="form-control"
 									id="floatingPassword" placeholder="비밀번호 입력"> <label
 									for="floatingPassword"></label>
 							</div>
@@ -114,7 +114,7 @@
 									Remember me
 								</label>
 							</div>
-							<button class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
+							<button type="submit" class="w-100 btn btn-lg btn-primary" type="submit">로그인</button>
 						</form>
 					</main>
 					<%
