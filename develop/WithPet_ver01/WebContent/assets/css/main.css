@@ -2081,7 +2081,7 @@ input, select, textarea {
    #banner {
       position: relative;
       padding: 4.5em;
-      background-color: peachpuff;
+      background-color: white;
    }
 
       #banner h2 {
@@ -2626,7 +2626,7 @@ input, select, textarea {
 
          #banner-wrapper {
             padding: 0 15px 0 15px;
-            background-color: peachpuff;
+            background-color: white;
          }
 
          #features-wrapper {

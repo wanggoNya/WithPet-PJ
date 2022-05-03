@@ -15,6 +15,15 @@
 <link rel="stylesheet" href="/assets/css/main.css" />
 </head>
 <body class="is-preload homepage">
+	<div id="page-wrapper">
+
+		<%@ include file='/header.jsp'%>
+
+		<!-- Banner -->
+		<div id="banner-wrapper">
+			<div id="banner" class="box container">
+				<!--여기사이에  -->
+
 				<!-- Bootstrap core CSS -->
 				<!-- CSS only -->
 				<link
@@ -27,17 +36,10 @@
 					href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 					integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
 					crossorigin="anonymous">
-	<div id="page-wrapper">
+
+
+
 				<link rel="stylesheet" href="/assets/css/main.css" />
-		<%@ include file='/header.jsp'%>
-
-		<!-- Banner -->
-		<div id="banner-wrapper">
-			<div id="banner" class="box container">
-				<!--여기사이에  -->
-
-
-
 
 				<style>
 .input-form {
@@ -50,8 +52,7 @@
 	border-radius: 10px;
 }
 </style>
-				<div class="container">
-					<div class="input-form-backgroud row">
+				<div class="container" align="Center">
 							<h4 class="mb-3">펫시터 등록 신청</h4>
 					<form action="petsitteradddb.jsp" method="post"
 						enctype="multipart/form-data">
@@ -115,10 +116,7 @@
 
 					</form>
 				</div>
-									<footer class="my-3 text-center text-small">
-						<p class="mb-1">&copy;</p>
-					</footer>
-				</div>
+				
 </body>
 <script>
 function findAddr(){

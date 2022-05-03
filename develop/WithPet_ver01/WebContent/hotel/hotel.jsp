@@ -31,8 +31,8 @@
 							</div>
 							<div class="col-5 col-12-medium">
 								<ul>
-									<li><a href="hotellocation.jsp" class="button large icon solid fa-arrow-circle-right">지도로 찾기</a></li>
-									<li><a href="hoteltype.jsp" class="button alt large icon solid fa-question-circle">종별로 찾기</a></li>
+									<li><a href="hotellocation.jsp" class="button large icon solid fa-arrow-circle">지도로 찾기</a></li>
+									<li><a href="hoteltype.jsp" class="button alt large icon solid fa-arrow-circle">종별로 찾기</a></li>
 								</ul>
 							</div>
 						</div>

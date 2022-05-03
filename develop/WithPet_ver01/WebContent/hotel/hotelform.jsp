@@ -69,12 +69,21 @@
 
 								</div>
 
-								<div class="mb-3">
-									<label for="address">주소</label> <input name="address"
-										type="text" class="form-control" id="name"
-										placeholder="서울특별시 강남구 역삼로 23번길 23-11" required>
+								<div class="mb-3" >
+									<label for="address">주소</label> 
+									<div style="line-height: 30%;"><input name="zipcode"
+										class="form-control" id="member_post" type="text"
+										placeholder="우편 번호" readonly required onclick="findAddr()">
+									<br> <input name="address1" type="text"
+										class="form-control" id="member_addr"
+										placeholder="서울특별시 강남구 역삼로 23번길 23-11" required readonly
+										onclick="findAddr()"> <br> <input name="address2"
+										class="form-control" type="text" placeholder="상세 주소">
 									<div class="invalid-feedback">주소를 입력해주세요.</div>
+									</div>
 								</div>
+
+
 								<div class="mb-3">
 									<label for="phoneNumber">호텔 대표 전화 번호<span
 										class="text-muted">&nbsp;</span></label> <input name="phoneNumber"
@@ -175,6 +184,35 @@ if(document.getElementById("input_check").checked) {
     });
   }, false);
 </script>
+</body>
+<script>
+function findAddr(){
+	new daum.Postcode({
+        oncomplete: function(data) {
+        	
+        	console.log(data);
+        	
+            // 팝업에서 검색결과 항목을 클릭했을때 실행할 코드를 작성하는 부분.
+            // 도로명 주소의 노출 규칙에 따라 주소를 표시한다.
+            // 내려오는 변수가 값이 없는 경우엔 공백('')값을 가지므로, 이를 참고하여 분기 한다.
+            var roadAddr = data.roadAddress; // 도로명 주소 변수
+            var jibunAddr = data.jibunAddress; // 지번 주소 변수
+            // 우편번호와 주소 정보를 해당 필드에 넣는다.
+            document.getElementById('member_post').value = data.zonecode;
+            if(roadAddr !== ''){
+                document.getElementById("member_addr").value = roadAddr;
+            } 
+            else if(jibunAddr !== ''){
+                document.getElementById("member_addr").value = jibunAddr;
+            }
+        }
+    }).open();
+}
+</script>
+<script
+	src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+
+
 </body>
 </html>
 </main>

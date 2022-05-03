@@ -31,8 +31,8 @@
 							</div>
 							<div class="col-5 col-12-medium">
 								<ul>
-									<li><a href="hotelform.jsp" class="button large icon solid fa-arrow-circle-right">호텔 등록</a></li>
-									<li><a href="/petsitter/petsitterform.jsp" class="button alt large icon solid fa-question-circle">펫시터 등록</a></li>
+									<li><a href="hotelform.jsp" class="button large icon solid fa-arrow-circle">호텔 등록</a></li>
+									<li><a href="/petsitter/petsitterform.jsp" class="button alt large icon solid fa-arrow-circle">펫시터 등록</a></li>
 								</ul>
 							</div>
 						</div>

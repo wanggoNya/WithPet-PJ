@@ -38,6 +38,8 @@
 			<li><a href="/basket/CartView2.jsp">장바구니</a></li>
 			</ul>
 			</ul>
+
 		</nav>
 	</header>
+					<hr>
 </div>

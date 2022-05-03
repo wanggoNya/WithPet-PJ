@@ -25,7 +25,6 @@ if(result==1){
    response.sendRedirect("/withPet/user/login.jsp");
 }else{
    out.print("<script>alert('회원가입을 환영합니다.');</script>");
-   out.print("location.href = '/withPet/user/useradd.jsp';");
-   
+   response.sendRedirect("/withPet/user/login.jsp");
 } 
 %>

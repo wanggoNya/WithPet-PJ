@@ -54,7 +54,7 @@ var positions = [
         latlng: new kakao.maps.LatLng(36.65915987036378, 126.67045285007806)
     },
     {
-        title: '<div style="padding:5px;"><a href="">▶ 강원도</a></div>', 
+        title: '<div style="padding:5px;"><a href="">▶ 경상도</a></div>', 
         latlng: new kakao.maps.LatLng(35.179793981625984, 129.07466315760195)
     },
     {

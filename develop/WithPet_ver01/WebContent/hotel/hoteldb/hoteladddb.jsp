@@ -26,9 +26,10 @@ String dog = null;
 String cat = null;
 String bird = null;
 String etc = null;
-String state = "10";
-String userId = "10";
-String zipcode = "test";
+String state = null;
+String userId = "1";
+String zipcode = null;
+
 byte[] file = null;
 
 ServletFileUpload sfu = new ServletFileUpload(new DiskFileItemFactory());
@@ -48,8 +49,16 @@ while (iter.hasNext()) { // 요소가 있으면 계속 반복 없으면 종료
 		String value = item.getString("utf-8"); // 한글 처리 중요!!!
 		if (pname.equals("name"))
 	name = value;
-		else if (pname.equals("address"))
+		else if (pname.equals("zipcode"))
+	zipcode = value;
+		else if (pname.equals("address1")){
 	address = value;
+	String[] states = address.split("\\s");
+	state = states[0];
+	}
+		else if (pname.equals("address2")){
+	address += " ";
+	address += value;}
 		else if (pname.equals("phoneNumber"))
 	phoneNumber = value;
 		else if (pname.equals("price"))

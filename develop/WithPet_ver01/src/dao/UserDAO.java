@@ -35,7 +35,10 @@ public class UserDAO {
 						rs.getString("email"), 
 						rs.getString("birthday"),
 						rs.getString("phoneNumber"), 
-						rs.getString("grade")));
+						rs.getString("grade"),
+						rs.getString("status")
+						
+						));
 			}
 			return users;
 
@@ -64,16 +67,17 @@ public class UserDAO {
 
 			rs.next();
 
-			UserDTO board = new UserDTO(rs.getString("id"), 
+			UserDTO user = new UserDTO(rs.getString("id"), 
 					rs.getString("account"), 
 					rs.getString("password"),
 					rs.getString("name"), 
 					rs.getString("email"), 
 					rs.getString("birthday"), 
 					rs.getString("phoneNumber"),
-					rs.getString("grade"));
+					rs.getString("grade"),
+					rs.getString("status"));
 
-			return board;
+			return user;
 
 		} finally {
 			if (rs != null)
@@ -86,25 +90,24 @@ public class UserDAO {
 
 	}
 	//회원가입
-	public int insertUser(String account, String password, String name, String email, String birthday, String phoneNumber,
-			String grade) throws NamingException, SQLException {
+	public int insertUser(String account, String password, String name, String email, String birthday, String phoneNumber
+			) throws NamingException, SQLException {
 
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		int id = 0;
 		try {
-			String sql = "INSERT INTO User (grade, birthday, email, name, phonenumber, account, password) "
-					+ "VALUES (?,?,?,?,?,?,?,?) ";
+			String sql = "INSERT INTO User ( birthday, email, name, phonenumber, account, password) "
+					+ "VALUES (?,?,?,?,?,?) ";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
-			pstmt.setInt(1, Integer.parseInt(grade));
-			pstmt.setString(2, birthday);
-			pstmt.setString(3, email);
-			pstmt.setString(4, name);
-			pstmt.setString(5, phoneNumber);
-			pstmt.setString(6, account);
-			pstmt.setString(7, password);
+			pstmt.setString(1, birthday);
+			pstmt.setString(2, email);
+			pstmt.setString(3, name);
+			pstmt.setString(4, phoneNumber);
+			pstmt.setString(5, account);
+			pstmt.setString(6, password);
 
 			pstmt.executeUpdate(); //db에 insert하기
 
@@ -180,9 +183,9 @@ public class UserDAO {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		try {
-			String sql = "UPDATE User SET status=0 " + "WHERE account=?";
+			String sql = "UPDATE User SET status=0 " + "WHERE account=? AND status=1";
 			conn = ConnectionPool.get();
-			pstmt = conn.prepareStatement(sql);
+			pstmt = conn.prepareStatement(sql); 
 			pstmt.setString(1, account);
 
 			int result = pstmt.executeUpdate();

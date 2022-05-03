@@ -16,6 +16,7 @@
          <!-- Banner -->
             <div id="banner-wrapper">
                <div id="banner" class="box container">
+               
                   <div class="row">
                      <div class="col-7 col-12-medium">
                         <h2>위드펫</h2>
