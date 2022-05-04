@@ -43,6 +43,9 @@ public class ProductDTO {
 		this.image = image;
 	}
 	
+	public ProductDTO() {
+		super();
+	}
 	//********************************* toString
 	@Override
 	public String toString() {

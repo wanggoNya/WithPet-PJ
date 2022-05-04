@@ -24,7 +24,7 @@ for (int i = 0; i < cart.size(); i++) {
 	}
 } //장바구니 세션에 등록된 제품이 없을 경우 : ProductDTO 객체를 생성하여 배열에 등록(add()) 
 if (pos == -1) {
-	ProductDTO dto = new ProductDTO();
+	ProductDTO dto = new ProductDTO(); 
 	dto.setName(name);
 	dto.setPrice(price); //1,500 ▶ 1500 : 쉼표 제거 후 정수형으로 랩핑 
 	cart.add(dto);
