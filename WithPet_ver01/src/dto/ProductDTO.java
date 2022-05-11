@@ -3,6 +3,7 @@ package dto;
 public class ProductDTO {
 	private String id;
 	private String name; // 츄르
+	private String content;
 	private String price;
 	private String image; //
 	
@@ -13,6 +14,11 @@ public class ProductDTO {
 	public String getName() {
 		return name;
 	}
+	
+	public String getContent() {
+		return content;
+	}
+	
 	public String getPrice() {
 		return price;
 	}
@@ -26,6 +32,9 @@ public class ProductDTO {
 	}
 	public void setName(String name) {
 		this.name = name;
+	}
+	public void setContent(String content) {
+		this.content = content;
 	}
 	public void setPrice(String price) {
 		this.price = price;

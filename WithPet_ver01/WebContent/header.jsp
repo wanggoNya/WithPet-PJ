@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!-- Header -->
+<%-- <%
+	String id = (String) session.getAttribute("id");
+%> --%>
 <div id="header-wrapper">
 	<header id="header" class="container">
 		<!-- Logo -->
@@ -21,7 +24,7 @@
 			</ul>
 			</li>
 			<li><a href="/petsitter/petsitter.jsp">펫시터 찾기</a></li>
-			<li><a href="/product/ShopMallMain.jsp">반려동물 용품</a></li>
+			<li><a href="/product/productlist.jsp">반려동물 용품</a></li>
 			<li><a href="/community/community.jsp">커뮤니티</a>
 				<ul>
 					<li><a href="/community/community_encyclopedia.jsp">보호자
@@ -33,9 +36,13 @@
 					<li><a href="/hotel/hotelform.jsp">호텔 등록 신청</a></li>
 					<li><a href="/petsitter/petsitterform.jsp">펫시터 등록 신청</a></li>
 				</ul></li>
+			<%-- <%if(id == null) { %> --%>
 			<li><a href="/user/login.jsp">로그인</a></li>
 			<li><a href="/user/signin.jsp">회원가입</a></li>
-			<li><a href="/basket/CartView2.jsp">장바구니</a></li>
+			<%-- <%}else{ %>
+			<li><a href="/user/logout.jsp">로그아웃</a></li> --%>
+			<li><a href="/product/CartView.jsp">장바구니</a></li>
+			<%-- <% } %> --%>
 			</ul>
 			</ul>
 

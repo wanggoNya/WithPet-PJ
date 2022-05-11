@@ -91,7 +91,7 @@
 						//세션 객체에 id 속성이 있으면 보여질 화면 
 					if (id != null) { //세션에 id 값이 있다 ▶ 로그인 상태를 유지하는 화면
 					%>
-					<a href="Logout.jsp">로그아웃</a>
+					<a href="/user/logout.jsp">로그아웃</a>
 					<%
 						} else { //세션에 id 값이 없다 ▶ 로그인 값이 없다
 					%>

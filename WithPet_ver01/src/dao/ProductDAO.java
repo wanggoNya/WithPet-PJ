@@ -78,7 +78,7 @@ public class ProductDAO {
 	}
 
 	// 상품 추가
-	public int insertProduct(String name, String price, String image
+	public int insertProduct(String name, String content, String price, String image
 			) throws NamingException, SQLException {
 
 		Connection conn = null;
@@ -86,13 +86,14 @@ public class ProductDAO {
 		ResultSet rs = null;
 		int id = 0;
 		try {
-			String sql = "INSERT INTO Product (name, price, image) "
-					+ "VALUES (?,?,?) ";
+			String sql = "INSERT INTO Product (name, content, price, image) "
+					+ "VALUES (?,?,?,?) ";
 			conn = ConnectionPool.get();
 			pstmt = conn.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			pstmt.setString(1, name);
-			pstmt.setInt(2, Integer.parseInt(price));
-			pstmt.setString(3, image);
+			pstmt.setString(2, content);
+			pstmt.setInt(3, Integer.parseInt(price));
+			pstmt.setString(4, image);
 
 			pstmt.executeUpdate(); // db에 insert하기
 

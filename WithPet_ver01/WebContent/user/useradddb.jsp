@@ -22,9 +22,9 @@ String phoneNumber=request.getParameter("phoneNumber");
  UserDAO dao=new UserDAO();
 int result=dao.insertUser(account, password, name, email, birthday, phoneNumber);
 if(result==1){
-   response.sendRedirect("/withPet/user/login.jsp");
+   response.sendRedirect("/user/login.jsp");
 }else{
-   out.print("<script>alert('회원가입을 환영합니다.');</script>");
-   response.sendRedirect("/withPet/user/login.jsp");
+   out.print("<script> alert('회원가입을 환영합니다.');</script>");
+   response.sendRedirect("/user/login.jsp");
 } 
 %>

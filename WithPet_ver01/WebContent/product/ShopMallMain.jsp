@@ -8,7 +8,7 @@
 <title>WithPet :: 위드펫 </title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-		<link rel="stylesheet" href="/assets/css/main.css" />
+		<link rel="stylesheet" href="assets/css/main.css" />
 <script type="text/javascript"> 
 function fnCart(name, price) { 
 	//alert("Name : " + name + "\nPrice : " + price); 
@@ -26,7 +26,7 @@ function fnCart(name, price) {
 <body class="is-preload homepage">
 		<div id="page-wrapper">
 
-			<%@ include file='../header.jsp' %>
+			<%@ include file='/header.jsp' %>
 			
 			<!-- Banner -->
 				<div id="banner-wrapper">
@@ -76,6 +76,6 @@ function fnCart(name, price) {
 	</div>
 	</div>
 				</div>
-				<%@ include file='../footer.jsp' %>
+				<%@ include file='/footer.jsp' %>
 </body>
 </html>

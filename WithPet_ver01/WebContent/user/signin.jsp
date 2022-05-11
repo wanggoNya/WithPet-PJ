@@ -126,7 +126,7 @@
 					</footer>
 				</div>
 				<script>
-  window.addEventListener('load', () => {
+/*  window.addEventListener('load', () => {
     const forms = document.getElementsByClassName('validation-form');
 
     Array.prototype.filter.call(forms, (form) => {
@@ -139,7 +139,7 @@
         form.classList.add('was-validated');
       }, false);
     });
-  }, false);
+  }, false);  */
 </script>
 
 

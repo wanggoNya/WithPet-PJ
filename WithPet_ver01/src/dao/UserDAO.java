@@ -199,32 +199,30 @@ public class UserDAO {
 		}
 	}
 
-	public int login(String account, String password) throws NamingException, SQLException {
-		Connection conn = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		try { 
-			String sql = "SELECT id, password FROM user WHERE account=? AND status=1";
-			conn = ConnectionPool.get();
-			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, account);
-			rs = pstmt.executeQuery();  // executeUpdate()는 바로 실행이 되나 select 쿼리는 다르다
+	public int login(String account, String password)
+			throws NamingException, SQLException {
+				
+				Connection conn = null;
+				PreparedStatement pstmt = null;
+				ResultSet rs = null;
+				
+				String sql = "SELECT account, password FROM User WHERE account = ?";
 
-			if (!rs.next()) //select query는 rs.next()를 해야 실행이 됨. 값이 없으면 rs.next() => false로 들어옴
-				return 1; // 회원이 아닌 경우  아이디 x jsp 회원가입 창 회원가입 해주세요 
-			if (!password.equals(rs.getString("password")))
-				return 2; // 패스워트 틀린경우 비밀번호가 틀립니다.
-			return rs.getInt("id");
-
-		} finally {
-			if (rs != null)
-				rs.close();
-			if (pstmt != null)
-				pstmt.close();
-			if (conn != null)
-				conn.close();
-		}
-	}
+				conn = ConnectionPool.get();
+				pstmt = conn.prepareStatement(sql);
+					pstmt.setString(1, account);
+				rs = pstmt.executeQuery();
+				
+				if(!rs.next()) {
+					return 1;
+				} else if (!password.equals(rs.getString("password"))) {
+					return 2;
+				} else {
+					return 0;
+				}
+				
+		
+			}
 
 	// 계정 인증 화면을 띄우기 위해 아이디, 이메일 , 생년월일이 동일한지 확인하는 sql 쿼리
 	// 비밀번호찾기 => 아이디, 이메일, 생년월일
